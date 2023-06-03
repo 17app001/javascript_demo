@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>JavaScript</h1>
+
+
+
+
+    <script>
+
+        // 常數宣告
+        const PI = 3.1415926;
+        // 全域變數
+        let radius = 10;
+        // typeof 查看型態
+        console.log(PI, radius, typeof (radius));
+
+        if (radius >= 10) {
+            let radius = "5";
+            console.log(typeof (radius), radius ** 2 * PI);
+        }
+
+
+        let email = "jerry@gmail.com";
+        // 取得長度
+        console.log(email.length);
+        // 取最後一個值
+        console.log(email[email.length - 1]);
+        // 取得區間字串
+        console.log(email.substring(0, 5));
+        // 是否包含
+        console.log(email.includes("jerry"));
+        email = email.replace("jerry", "mario");
+        console.log(email);
+        // 分割(split)
+        console.log(email.split("@"));
+        // 清除(strip)
+        console.log(email.trim().length);
+
+        // 使用迴圈取每一個值 i++ =>i+=1
+
+        for (let i = 0; i < email.length;) {
+            console.log(email[i++]);
+        }
+
+        let x = 10;
+        let y = "10";
+        // + =>字串串接
+        console.log(y + x);
+        // 轉型
+        console.log(Number(y) + x);
+        console.log(parseInt(y) + x);
+        console.log(parseFloat(y) + x);
+        console.log(y / x);
+        console.log(x == y);
+        console.log(x === y);
+
+        let a = 10;
+        let b = 20;
+        let c = 30;
+        let d = false;
+
+        // and ==> && or ==>|| not==>!
+        if (a < b && b < c && !d) {
+            console.log("a<b");
+        }
+
+        a = -7.7;
+        console.log(Math.round(a));
+        console.log(Math.abs(a));
+        // 大於等於最接近的整數
+        console.log(Math.ceil(a));
+        // 小於等於最接近的整數
+        console.log(Math.floor(a));
+        // 0~1 浮點數
+        console.log(Math.random());
+        console.log("--------------------");
+        // 0~10之間浮點數 => 10~100
+
+
+        // Math.floor(Math.random()*(end-start+1)) + start
+        // 10,100
+        for (let i = 0; i < 10; i++) {
+            let x = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
+            console.log(x);
+        }
+
+        console.log("--------------------");
+        // while (true) {
+        //     let x = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
+        //     console.log(x);
+
+        //     if (x == 10 || x == 100) {
+        //         break;
+        //     }
+        // }
+
+        // 取得不重複的亂數
+        numbers = [];
+        while (true) {
+            let x = Math.floor(Math.random() * (49 - 1 + 1)) + 1;
+            // 判斷數值是否重複
+            if (!numbers.includes(x)) {
+                numbers.push(x);
+            }
+            // 到達長度停止
+            if (numbers.length == 6) {
+                break;
+            }
+        }
+
+        console.log(numbers);
+        document.write("<ul>");
+        for (let i = 0; i < numbers.length; i++) {
+            document.write(`<li style="color:red">第${i + 1}個號碼:
+                ${numbers[i]}</li>`);
+        }
+        document.write("</ul>");
+
+
+        let numberStr = "";
+        for (let i = 0; i < 6; i++) {
+            let x = Math.floor(Math.random() * (49 - 1 + 1)) + 1;
+            numberStr += x + ",";
+        }
+
+        document.write(`預測號碼為:${numberStr.substring(0, numberStr.length - 1)}`);
+
+        // 輸出六個號碼+一個特別號到document       
+
+        x = [1, 2, '3'];
+
+        console.log(x, typeof (x));
+        console.log(x[0], x[x.length - 1]);
+        console.log(x.join(" "));
+        x.push(4);
+        console.log(x, typeof (x));
+        for (let i = 0; i < x.length; i++) {
+            console.log(x[i]);
+        }
+        console.log(x.pop());
+        console.log(x, typeof (x));
+
+
+
+
+
+
+
+
+        //console.log(i);
+        /**
+         * 計算BMI
+         * 使用者可以輸入身高跟體重
+         * 體重/身高(公尺)平方
+         */
+        // let height = prompt("身高:");
+        // let weight = prompt("體重:");
+        // //計算BMI(Math.round())
+        // let bmi = weight / (height / 100) ** 2;
+
+        // //document.write("身高" + height + "體重" + weight + "BMI" + bmi);
+        // document.write(`身高:${height} 體重:${weight}<br> BMI:${bmi.toFixed(2)}`);
+
+
+
+
+        /**
+         * 計算園面積
+         * 測試多行註解
+         */
+
+        // 使用prompt取的輸入
+        // radius = prompt("請輸入半徑:");
+
+        // let area = radius ** 2 * PI;
+        // console.log(typeof (radius), area);
+        // // 數值可以跟字串串接
+        // document.write("<h3>半徑為:" + radius + " 面積為:" + area + "</h3>");
+        // alert("半徑為:" + radius + " 面積為:" + area);
+
+        let start = 1, end = 50;
+        x = randint(start, end);
+        let win = false;
+        for (let i = 0; i < 5; i++) {
+            let y = prompt(`${x}第${i + 1}次，範圍${start}~${end}之間:`);
+            if (y == x) {
+                alert("猜對了!");
+                win = true;
+                break;
+            }
+
+            if (y > x) {
+                // 在end>y當下再更改終止值
+                if (end > y) {
+                    end = y;
+                }
+                alert("猜小一點!");
+            } else {
+                // 在start<y當下再更改起始值
+                if (start < y) {
+                    start = y;
+                }
+                alert("猜大一點!");
+            }
+        }
+
+        if (!win) {
+            alert(`正確答案為:${x}`);
+        }
+
+        function randint(start, end) {
+            let x = Math.floor(Math.random() * (end - start + 1)) + start;
+            return x;
+        }
+    </script>
+</body>
+
+</html>
